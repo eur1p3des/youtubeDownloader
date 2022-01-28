@@ -1,21 +1,10 @@
-# youtubeDownloader
-[![Made With - Python](https://img.shields.io/badge/Made_With-Python-2ea44f?style=for-the-badge&logo=python)](https://python.org)
----
-youtubeDownloader is a program codded in Python that via a graphical interface allows you to download YouTube videos to any folder you want in your computer.
-
-### Code Structure
-My code is composed of the following parts:
-
-1. Import the required libraries:
-```py
 import tkinter as tk
 from tkinter import *
 from pytube import YouTube
 from tkinter import filedialog, messagebox
-```
 
-2. Create a function to create the app box:
-```py
+
+
 # DESCRIPTION: This function creates the box for our application.
 def createBox():
     root.geometry("600x120")
@@ -23,9 +12,7 @@ def createBox():
     root.title("YouTube Downloader by Eur1p3des")
     root.config(background="#000000")
 
-```
-3. Create the function that creates the necessary widgets to run the app properly:
-```py
+
 # DESCRIPTION: This function creates all the widgets user in the app.
 def createWidgets():
     ################################################################
@@ -54,18 +41,15 @@ def createWidgets():
     #Create the download button
     download_but = Button(root, text="Download", command=download_video, width=25, bg="#05E8E0")
     download_but.grid(row=3, column=1, pady=3, padx=3)
-```
-4. We now shall create the function to open the file manager when browse button is clicked:
-```py
+    ################################################################
+
 # DESCRIPTION: This function opens the file manager so you can choose your destination folder
 def browse():
     # Opens the file manager where you can select the folder
     download_dir = filedialog.askdirectory(initialdir="Your Directory Path")
     # Inputs the folder path you have chosen into the destination box
     destination_link.set(download_dir)
-```
-5. We must now create the function that will download the video when the "Download" button is clicked:
-```py
+
 # DESCRIPTION: This function downloads the video.
 def download_video():
     #Grab the youtube link and stores it in the url parameter
@@ -82,9 +66,9 @@ def download_video():
 
     #If the video has been downloaded successfully, a popup window appears indicatingthat the video has been downloaded.
     messagebox.showinfo("Success!!", "Download Successful! You will find your video at\n"+folder)
-```
-5. Finally, we can call all the functions so that the program runs:
-```py
+
+
+
 ################################################################
 #                    MAIN PART OF THE CODE                     #
 ################################################################
@@ -94,4 +78,3 @@ video_link = StringVar()
 destination_link = StringVar()
 createWidgets()
 root.mainloop()
-```
